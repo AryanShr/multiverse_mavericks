@@ -3,8 +3,8 @@ import bgImg from './img/sky.jpg'
 import galaxy from './img/galaxy.jpg'
 function Home() {
   return (
-    <div className="h-[100vh]">
-        Hi
+    <div style={{backgroundImage:`url(${bgImg})`,backgroundSize:'cover',backgroundRepeat:'no-repeat', height:'100vh',width:'100vw', display:'flex', color:'white', justifyContent:'center', alignItems:'center'}}>
+    <p>Space Background</p>
     </div>
   )
 }
