@@ -7,9 +7,9 @@ import Quiz from './elements/Quiz'
 function Pokemon() {
   return (
     <div className='flex w-[100%] justify-around h-[100%] items-center'>
-        <Games />
+        <Link to='/Pokemon/game'><Games /></Link>
         <Link to='/Pokemon/database' ><Books /></Link>
-        <Quiz />
+        <Link to='/Pokemon/quiz'><Quiz /></Link>
     </div>
   )
 }
