@@ -23,7 +23,7 @@ function DatabaseDC() {
                     seterror("")
                 }
             }
-            else{
+            else {
                 seterror('Looks like this charachter is not in this universe')
             }
         } catch (err) {
@@ -46,7 +46,7 @@ function DatabaseDC() {
                             <input className=' text-black rounded-lg p-4 mt-4' placeholder='Type Here...' onChange={(e) => { setselHero(e.target.value) }} />
                         </label>
                         <button type="submit" class="mt-8 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white">Search</button>
-                        {error&& <div className='text-red-600 text-lg'>{error}</div>}
+                        {error && <div className='text-red-600 text-lg'>{error}</div>}
                     </form>
                 </div>
                 :
@@ -55,7 +55,7 @@ function DatabaseDC() {
                         <div className='flex h-[100%]'>
                             <div className='w-[30%] bg-slate-600 flex flex-col'>
                                 <div className='flex-auto'>
-                                    <img src={heroData[current].image.url} alt={heroData[current].name} />
+                                    <img src={heroData[current].image.url} alt={heroData[current].name}/>
                                 </div>
                                 <div className='flex-auto bg-gray-900'>
                                     Hero Name: {heroData[current].name}
@@ -73,73 +73,52 @@ function DatabaseDC() {
                                     Weight: {heroData[current].appearance.weight[1]}
                                 </div>
                             </div>
-                            <div className='w-[100%]'>
-                                <div className='flex my-4 mx-2 justify-items-start'>
-                                    <div className='mr-4'>
-                                        Real Name:
-                                    </div>
-                                    <div>
-                                        {heroData[current].biography["full-name"]}
-                                    </div>
-                                </div>
-                                <div className='flex my-4 mx-2 justify-items-start'>
-                                    <div className='mr-4'>
-                                        Aliases:
-                                    </div>
-                                    <div>
-                                        {heroData[current].biography.aliases.map((c) => (
-                                            <div className='inline-block'>{c},</div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className='flex my-4 mx-2 justify-items-start'>
-                                    <div className='mr-4'>
-                                        Groups Affliations:
-                                    </div>
-                                    <div>
-                                        {heroData[current].connections["group-affiliation"]}
-                                    </div>
-                                </div>
-                                <div className='flex my-4 mx-2 justify-items-start'>
-                                    <div className='mr-4'>
-                                      PowerStats:
-                                    </div>
-                                    <div>
+                            <table>
+                                <tr className='border border-cyan-500'>
+                                    <td>Real Name</td>
+                                    <td>{heroData[current].biography["full-name"]}</td>
+                                </tr>
+                                <tr className='border border-cyan-500'>
+                                    <td>Aliases</td>
+                                    <td>{heroData[current].biography.aliases.join(", ")}</td>
+                                </tr>
+                                <tr className='border border-cyan-500'>
+                                    <td>Groups Affiliations</td>
+                                    <td>{heroData[current].connections["group-affiliation"]}</td>
+                                </tr>
+                                <tr className='border border-cyan-500'>
+                                    <td>PowerStats</td>
+                                    <td>
                                         <ul>
-                                        {Object.entries(heroData[current].powerstats).map(([key,value])=>(
-                                            <li key={key}>{key}:{value}</li>
-                                        ))}
+                                            {Object.entries(heroData[current].powerstats).map(([key, value]) => (
+                                                <li key={key}>{`${key}: ${value}`}</li>
+                                            ))}
                                         </ul>
-                                    </div>
-                                </div>
-                                <div className='flex my-4 mx-2 justify-items-start'>
-                                    <div className='mr-4'>
-                                      Occupation:
-                                    </div>
-                                    <div>
-                                        <ul>
-                                        {heroData[current].work.occupation}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                                    </td>
+                                </tr>
+                                <tr className='border border-cyan-500'>
+                                    <td>Occupation</td>
+                                    <td>{heroData[current].work.occupation}</td>
+                                </tr>
+                            </table>
+
                         </div>
                     </div>
                     <div className='absolute bottom-4 left-[50%] '>
-                        {heroData.length>1&&<div className='flex justify-between'>
+                        {heroData.length > 1 && <div className='flex justify-between'>
 
                             <button
-                            disabled={current===0}
-                            onClick={() => {setCurrent(current-1)}}
-                            className='mb-4 mr-4 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
+                                disabled={current === 0}
+                                onClick={() => { setCurrent(current - 1) }}
+                                className='mb-4 mr-4 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
                             >
                                 Previous
                             </button>
-                            {current+1}
+                            {current + 1}
                             <button
-                            disabled={current === heroData.length-1}
-                            onClick={() =>{setCurrent(current+1)}}
-                            className = 'ml-4 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
+                                disabled={current === heroData.length - 1}
+                                onClick={() => { setCurrent(current + 1) }}
+                                className='ml-4 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
                             >
                                 Next
                             </button>

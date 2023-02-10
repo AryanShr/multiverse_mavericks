@@ -23,7 +23,7 @@ const unis = [
 ]
 
 function Logo({ x, y,content}) {
-
+  console.log('I am here')
   return (
     <div className='absolute ' style={{top:y, left:x}}>
             <img src= {content} style={{display:'block'}} className='absolute z-20 w-[30vh]  transition-all pointer-events-none top-16 left-16' alt='galaxy'/>
