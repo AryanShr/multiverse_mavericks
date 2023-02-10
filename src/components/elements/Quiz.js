@@ -3,9 +3,9 @@ import quiz from './img/quiz.png'
 function Quiz() {
     const[glow, setglow] = useState(false);
     return (
-      <div className='h-32 w-64 hover:scale-150 transition-all' onMouseEnter={()=>setglow(true)} onMouseLeave={()=>setglow(false)}>
-          {<img src={quiz} alt="book" className=''/>}
-          <p className='text-center text-2xl relative'>Quiz</p>
+      <div className='  w-64  hover:scale-150 transition-all items-center place-content-center rounded-lg' onMouseEnter={()=>setglow(true)} onMouseLeave={()=>setglow(false)}>
+          {<img src={quiz} alt="book" className='p-4'/>}
+          <p className='text-center font-mono text-xl relative'>Quiz</p>
       </div>
     )
 }

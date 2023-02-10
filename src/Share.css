@@ -1,0 +1,14 @@
+.share-icon-collections {
+background-color:rgb(255, 255, 255);
+display: flex;
+padding: 5px;
+align-items: center;
+border-radius: 0px 8px 8px 0px;
+}
+
+.share-icon-collections a{
+    padding: 5px;
+}
+
+
+

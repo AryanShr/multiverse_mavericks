@@ -58,10 +58,11 @@ function GameMarvel(){
     }
 
     return (
-        <div className='h-[100vh] w-[100vw] bg-cover bg-no-repeat justify-center items-center text-center relative' style={{backgroundImage:`url(${bgUrl})`}}>
-            <h1>
-            Some popular characters of this Universe
+        <div className='h-[100%] realtive bg-cover bg-no-repeat justify-center  items-center text-center' style={{backgroundImage:`url(${bgUrl})`}}>
+            <h1 className='inline-block'>
+            &nbsp;Some popular characters of this Universe &nbsp;
             </h1>
+            
             <div className="game">
                 { items.map((item, index) => (
                     <Card key={index} item={item} id={index} handleClick={handleClick} />
