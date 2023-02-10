@@ -3,9 +3,9 @@ import Card from './Card'
 import '../game.css'
 
 
-document.body.style.backgroundImage = "url('https://wallpapercave.com/wp/W8SnI0A.jpg')";
+const bgUrl = 'https://wallpapercave.com/wp/W8SnI0A.jpg'
 
-function Cards(){
+function GameMarvel(){
     const [items, setItems] = useState([
         { id: 1, name:"Ironman", img: '/img/ironMan.png', stat: "" },
         { id: 1, name:"Ironman", img: '/img/ironMan.png', stat: "" },
@@ -58,7 +58,7 @@ function Cards(){
     }
 
     return (
-        <div>
+        <div className='h-[100vh] w-[100vw] bg-cover bg-no-repeat justify-center items-center text-center relative' style={{backgroundImage:`url(${bgUrl})`}}>
             <h1>
             Some popular characters of this Universe
             </h1>
@@ -71,4 +71,4 @@ function Cards(){
     )
 }
 
-export default Cards
+export default GameMarvel;

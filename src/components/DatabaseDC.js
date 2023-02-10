@@ -41,11 +41,11 @@ function DatabaseDC() {
         <div>
             {!showData ?
                 <div className='mx-auto flex flex-col w-[25%] pt-64'>
-                    <form className='text-center items-center bg-black rounded-lg p-4 ' onSubmit={handleSubmit}>
+                    <form className='text-center items-center bg-black rounded-lg p-4 flex' onSubmit={handleSubmit}>
                         <label className=''>Enter Charachter Name
-                            <input className=' text-black rounded-lg p-4' placeholder='Type Here...' onChange={(e) => { setselHero(e.target.value) }} />
+                            <input className=' text-black rounded-lg p-4 mt-4' placeholder='Type Here...' onChange={(e) => { setselHero(e.target.value) }} />
                         </label>
-                        <button type="submit" class="m-8 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white">Search</button>
+                        <button type="submit" class="mt-8 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white">Search</button>
                         {error&& <div className='text-red-600 text-lg'>{error}</div>}
                     </form>
                 </div>

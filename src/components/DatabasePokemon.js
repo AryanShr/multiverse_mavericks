@@ -6,6 +6,7 @@ function DatabasePokemon() {
     const [selPokemon, setselPokemon] = useState("");
     const [heroData, setheroData] = useState({})
     const [error, seterror] = useState("")
+    const [pokedex,setpokedex] = useState({});
     const fetchdata = async () => {
         try {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${selPokemon}`)
@@ -23,21 +24,33 @@ function DatabasePokemon() {
             seterror(err.message)
         }
     }
+    const fetchentry = async () =>{
+        try {
+            const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${selPokemon}`)
+            // console.log(res.data)
+            setpokedex(res.data)
+            console.log(pokedex)
+        } catch (error) {
+            console.log(error);
+            seterror(error.message)
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         if (selPokemon) {
             fetchdata()
+            fetchentry()
         }
     }
     return (
         <div>
             {!showData ?
-                <div className='mx-auto flex flex-col w-[25%] pt-64'>
-                    <form className='text-center items-center bg-black rounded-lg p-4 ' onSubmit={handleSubmit}>
+                <div className='mx-auto flex flex-col w-[30%] pt-64'>
+                    <form className='text-center items-center flex bg-black rounded-lg p-4 ' onSubmit={handleSubmit}>
                         <label className=''>Enter Pokemon Name
-                            <input className=' text-black rounded-lg p-4' placeholder='Type Here...' onChange={(e) => { setselPokemon(e.target.value) }} />
+                            <input className=' text-black rounded-lg p-4 mt-4' placeholder='Type Here...' onChange={(e) => { setselPokemon(e.target.value.toLowerCase()) }} />
                         </label>
-                        <button type="submit" class="m-8 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white">Search</button>
+                        <button type="submit" class="mt-8 w-[40%] bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white">Search</button>
                         {error&& <div className='text-red-600 text-lg'>{error}</div>}
                     </form>
                 </div>
@@ -70,30 +83,48 @@ function DatabasePokemon() {
                             </div>
                             <div className='w-[100%]'>
                                 <div className='flex my-4 mx-2 justify-items-start'>
-                                    {/* <div className='mr-4'>
-                                        Real Name:
+                                    <div className='mr-4'>
+                                        Description:
                                     </div>
                                     <div>
-                                        {heroData[current].biography["full-name"]}
-                                    </div> */}
+                                        {pokedex.flavor_text_entries[7].flavor_text}
+                                    </div>
                                 </div>
                                 <div className='flex my-4 mx-2 justify-items-start'>
-                                    {/* <div className='mr-4'>
-                                        Aliases:
+                                    <div className='mr-4'>
+                                        Genus:
                                     </div>
                                     <div>
-                                        {heroData[current].biography.aliases.map((c) => (
-                                            <div className='inline-block'>{c},</div>
+                                        {pokedex.genera[7].genus}
+                                    </div>
+                                </div>
+                                <div className='flex my-4 mx-2 justify-items-start'>
+                                    <div className='mr-4'>
+                                        Generation:
+                                    </div>
+                                    <div>
+                                        {pokedex.generation.name}
+                                    </div>
+                                </div>
+                                <div className='flex my-4 mx-2 justify-items-start'>
+                                    <div className='mr-4'>
+                                        Growth Rate:
+                                    </div>
+                                    <div>
+                                        {pokedex.growth_rate.name}
+                                    </div>
+                                </div>
+                                <div className='flex my-4 mx-2 justify-items-start'>
+                                    <div className='mr-4'>
+                                      Abilities:
+                                    </div>
+                                    <div>
+                                        <ul>
+                                        {heroData.abilities.map((value)=>(
+                                            <li>{value.ability.name}</li>
                                         ))}
-                                    </div> */}
-                                </div>
-                                <div className='flex my-4 mx-2 justify-items-start'>
-                                    {/* <div className='mr-4'>
-                                        Groups Affliations:
+                                        </ul>
                                     </div>
-                                    <div>
-                                        {heroData[current].connections["group-affiliation"]}
-                                    </div> */}
                                 </div>
                                 <div className='flex my-4 mx-2 justify-items-start'>
                                     <div className='mr-4'>
