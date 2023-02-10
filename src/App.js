@@ -20,33 +20,37 @@ import QuizPokemon from './components/QuizPokemon';
 import QuizMarvel from './components/QuizMarvel';
 import QuizDC from './components/QuizDC';
 
+import { useSelector } from 'react-redux';
+
 function App() {
-  // const isLoggedIn = true;
+  const isLoggedIn = useSelector(state => state.isLoggedIn);
+  // console.log(isLoggedIn)
   return (
-    <Router>
       <div className='bg-cover bg-no-repeat h-[100vh] w-[100vw] text-white ' style={{ backgroundImage: `url(${bgImg})` }} >
         <Routes>
-          <Route path='/' exact element={<Login />} />
-          <Route path='/universe' exact element={<Universe />} />
-          <Route path='/pokemon' exact element={<Pokemon />} />\
-          <Route path='/pokemon/game' exact element={<GamePokemon />} />
-          <Route path='/pokemon/database' exact element={<DatabasePokemon />} />
-          <Route path='/pokemon/quiz' exact element={<QuizPokemon />} />
-          <Route path='/dbz' exact element={<DBZ />} />
-          <Route path='/dbz/game' exact element={<GameDB />} />
-          <Route path='/dbz/quiz' exact element={<DBQuiz />} />
-          <Route path='/dc' exact element={<DC />} />
-          <Route path='/DC/database' exact element={<DatabaseDC />} />
-          <Route path='/dc/game' exact element={<GameDC />} />
-          <Route path='/dc/quiz' exact element={<QuizDC />} />
-          <Route path='/marvel' exact element={<Marvel />} />
-          <Route path='/Marvel/database' exact element={<DatabaseMarvel />} />
-          <Route path='/marvel/game' exact element={<GameMarvel />} />
-          <Route path='/marvel/quiz' exact element={<QuizMarvel />} />
-          <Route path='/disney' exact element={<Disney />} />
+        
+          <Route path='/' element={isLoggedIn ? <Universe /> : <Navigate to='/login' />} />
+          <Route path='/login' element={isLoggedIn   ? <Navigate to='/' /> : <Login />} />
+          {/* <Route path='/' exact element={<Login />} /> */}
+          {/* <Route path='/universe' exact element={<Universe />} /> */}
+          <Route path='/pokemon' element={isLoggedIn?<Pokemon />:<Navigate to='/login' />} />
+          <Route path='/pokemon/game' element={isLoggedIn?<GamePokemon />:<Navigate to='/login' />} />
+          <Route path='/pokemon/database' element={isLoggedIn?<DatabasePokemon />:<Navigate to='/login' />} />
+          <Route path='/pokemon/quiz' element={isLoggedIn?<QuizPokemon />:<Navigate to='/login' />} />
+          <Route path='/dbz' element={isLoggedIn?<DBZ />:<Navigate to='/login' />} />
+          <Route path='/dbz/game' element={isLoggedIn?<GameDB />:<Navigate to='/login' />} />
+          <Route path='/dbz/quiz' element={isLoggedIn?<DBQuiz />:<Navigate to='/login' />} />
+          <Route path='/dc' element={isLoggedIn?<DC />:<Navigate to='/login' />} />
+          <Route path='/DC/database' element={isLoggedIn?<DatabaseDC />:<Navigate to='/login' />} />
+          <Route path='/dc/game' element={isLoggedIn?<GameDC />:<Navigate to='/login' />} />
+          <Route path='/dc/quiz' element={isLoggedIn?<QuizDC />:<Navigate to='/login' />} />
+          <Route path='/marvel' element={isLoggedIn?<Marvel />:<Navigate to='/login' />} />
+          <Route path='/Marvel/database' element={isLoggedIn?<DatabaseMarvel />:<Navigate to='/login' />} />
+          <Route path='/marvel/game' element={isLoggedIn?<GameMarvel />:<Navigate to='/login' />} />
+          <Route path='/marvel/quiz' element={isLoggedIn?<QuizMarvel />:<Navigate to='/login' />} />
+          <Route path='/disney' element={isLoggedIn?<Disney />:<Navigate to='/login' />} />
         </Routes>
       </div>
-    </Router>
   );
 }
 

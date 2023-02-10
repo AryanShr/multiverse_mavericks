@@ -125,22 +125,25 @@ function DatabaseMarvel() {
                             </div>
                         </div>
                     </div>
-                    <div className='absolute bottom-4 left-[50%]'>
-                        <button
-                        disabled={current===0}
-                        onClick={() => {setCurrent(current-1)}}
-                        className='m-4  bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
-                        >
-                            Previous
-                        </button>
-                        {heroData.length>1?current+1:''}
-                        <button
-                        disabled={current === heroData.length-1}
-                        onClick={() =>{setCurrent(current+1)}}
-                        className = ' bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
-                        >
-                            Next
-                        </button>
+                    <div className='absolute bottom-4 left-[50%] '>
+                        {heroData.length>1&&<div className='flex justify-between'>
+
+                            <button
+                            disabled={current===0}
+                            onClick={() => {setCurrent(current-1)}}
+                            className='mb-4 mr-4 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
+                            >
+                                Previous
+                            </button>
+                            {current+1}
+                            <button
+                            disabled={current === heroData.length-1}
+                            onClick={() =>{setCurrent(current+1)}}
+                            className = 'ml-4 bg-indigo-500 hover:bg-indigo-700 rounded-full p-2 shadow-lg font-semibold text-white'
+                            >
+                                Next
+                            </button>
+                        </div>}
                     </div>
                 </div>
             }
