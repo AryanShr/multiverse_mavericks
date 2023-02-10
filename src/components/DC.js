@@ -6,9 +6,9 @@ import Quiz from './elements/Quiz'
 function DC() {
     return (
         <div className='flex w-[100%] justify-around h-[100%] items-center'>
-            <Games />
+            <Link to= '/DC/game'><Games /></Link>
             <Link to='/DC/database' ><Books /></Link>
-            <Quiz />
+            <Link to='/DC/quiz'><Quiz /></Link>
         </div>
       )
 }

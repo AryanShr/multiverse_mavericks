@@ -2,9 +2,9 @@ import { useState } from 'react'
 import Card from './Card'
 import '../game.css'
 
-document.body.style.backgroundImage = "url('https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/go/pokemon-party.jpg')";
+const bgUrl = 'https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/go/pokemon-party.jpg'
 
-function Cards(){
+function GamePokemon(){
     const [items, setItems] = useState([
         { id: 1, name:"Pikachu", img: '/img/pikachu.png', stat: "" },
         { id: 2, name:"Squirtle", img: '/img/squirtle.png', stat: "" },
@@ -57,7 +57,7 @@ function Cards(){
     }
 
     return (
-        <div>
+        <div className='h-[100vh] w-[100vw] bg-cover bg-no-repeat justify-center items-center text-center relative' style={{backgroundImage:`url(${bgUrl})`}}>
             <h1>
             Some popular characters of this Universe
             </h1>
@@ -70,4 +70,4 @@ function Cards(){
     )
 }
 
-export default Cards
+export default GamePokemon

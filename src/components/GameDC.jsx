@@ -2,9 +2,9 @@ import { useState } from 'react'
 import Card from './Card'
 import '../game.css'
 
-document.body.style.backgroundImage = "url('https://images8.alphacoders.com/974/thumb-1920-974682.jpg')";
+const bgUrl = 'https://images8.alphacoders.com/974/thumb-1920-974682.jpg'
 
-function Cards(){
+function GameDC(){
     const [items, setItems] = useState([
         { id: 1, name:"Aquaman", img: '/img/aquaman.png', stat: "" },
         { id: 1, name:"Aquaman", img: '/img/aquaman.png', stat: "" },
@@ -57,7 +57,7 @@ function Cards(){
     }
 
     return (
-        <div>
+        <div className='h-[100vh] w-[100vw] bg-cover bg-no-repeat justify-center items-center text-center relative' style={{backgroundImage:`url(${bgUrl})`}}>
             <h1>
             Some popular characters of this Universe
             </h1>
@@ -70,4 +70,4 @@ function Cards(){
     )
 }
 
-export default Cards
+export default GameDC

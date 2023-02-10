@@ -6,9 +6,9 @@ import Quiz from './elements/Quiz'
 function DBZ() {
     return (
         <div className='flex w-[100%] justify-around h-[100%] items-center'>
-            <Games />
+            <Link to='/DBZ/game'><Games /></Link>
             <Link to='/DBZ/database' ><Books /></Link>
-            <Quiz />
+            <Link to='/DBZ/quiz'><Quiz /></Link>
         </div>
       )
 }

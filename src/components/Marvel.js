@@ -6,9 +6,9 @@ import Quiz from './elements/Quiz'
 function Marvel() {
     return (
         <div className='flex w-[100%] justify-around h-[100%] items-center'>
-            <Games />
+            <Link to='/Marvel/game'><Games /></Link>
             <Link to='/Marvel/database' ><Books /></Link>
-            <Quiz />
+            <Link to='/Marvel/quiz'><Quiz /></Link>
         </div>
       )
 }

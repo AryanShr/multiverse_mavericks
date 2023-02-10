@@ -2,10 +2,9 @@ import { useState } from 'react'
 import Card from './Card'
 import '../game.css'
 
-document.body.style.backgroundImage = "url('https://wallpapercave.com/wp/wp4990911.jpg')";
-document.body.style.backgroundHeight = "";
+const bgUrl = 'https://wallpapercave.com/wp/wp4990911.jpg';
 
-function Cards(){
+function GameDB(){
     const [items, setItems] = useState([
         { id: 1, name:"Goku", img: '/img/goku.png', stat: "" },
         { id: 1, name:"Goku", img: '/img/goku.png', stat: "" },
@@ -58,7 +57,7 @@ function Cards(){
     }
 
     return (
-        <div>
+        <div className='h-[100vh] w-[100vw] bg-cover bg-no-repeat justify-center items-center text-center relative' style={{backgroundImage:`url(${bgUrl})`}}>
             <h1>
             Some popular characters of this Universe
             </h1>
@@ -71,4 +70,4 @@ function Cards(){
     )
 }
 
-export default Cards
+export default GameDB
