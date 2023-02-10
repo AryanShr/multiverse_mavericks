@@ -3,3 +3,7 @@
 @tailwind utilities;  
 
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Patrick+Hand&display=swap');
+
+.body{
+    background-size: cover;
+}

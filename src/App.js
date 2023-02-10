@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
 import Universe from './components/Universe';
 import Login from './components/Login';
-import bgImg from './components/img/sky.jpg'
+import bgImg from './components/img/background.jpg'
 import Pokemon from './components/Pokemon';
 import DatabaseMarvel from './components/DatabaseMarvel';
 import DatabaseDC from './components/DatabaseDC';
