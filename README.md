@@ -13,6 +13,6 @@ Created for IIT Goa Cepheus 2023
 
 
 For Each Universe
--Contains Api Calls for retreiving data
--Basic Matching image game
--small quiz
+- Contains Api Calls for retreiving data
+- Basic Matching image game
+- small quiz
